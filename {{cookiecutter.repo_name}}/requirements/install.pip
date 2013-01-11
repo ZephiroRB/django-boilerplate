@@ -1,0 +1,15 @@
+Pillow
+coverage
+psycopg2
+Django
+django-htmlmin
+django_compressor
+django-grappelli
+django-getenv
+django-debug-toolbar
+django-extensions
+python-slugify
+beautifulsoup4
+celery
+requests
+django-libsass

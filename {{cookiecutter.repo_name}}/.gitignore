@@ -19,10 +19,7 @@ nosetests.xml
 # OSX
 .DS_Store
 
-# Vagrant
-.vagrant
-
 # Django config
-config/Envfile
+config/.Envfile
 src/media/
 src/static/

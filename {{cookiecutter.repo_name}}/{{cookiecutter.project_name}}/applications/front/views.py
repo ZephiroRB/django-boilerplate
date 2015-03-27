@@ -12,4 +12,4 @@ def index(request):
     """
         Index
     """
-    return render(request, 'index.html', {})
+    return render(request, 'base.html', {})

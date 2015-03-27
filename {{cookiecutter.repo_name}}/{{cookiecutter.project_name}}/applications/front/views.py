@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-
 """
-    Front app
-    Author  :   {{cookiecutter.author_name}} <{{cookiecutter.email}}>
+Front app
+Author : {{cookiecutter.author_name}} <{{cookiecutter.email}}>
 """
 
 from django.shortcuts import render
@@ -10,6 +9,6 @@ from django.shortcuts import render
 
 def index(request):
     """
-        Index
+    Index
     """
     return render(request, 'base.html', {})

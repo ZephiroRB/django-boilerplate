@@ -13,7 +13,7 @@ from django.conf import settings
 urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'applications.front.views.base')
+    url(r'^$', 'applications.front.views.index')
 )
 
 if settings.DEBUG:

@@ -1,28 +1,26 @@
 # -*- coding: utf-8 -*-
-
 """
-    Default settings for {{cookiecutter.project_name}}
-    Author  :   {{cookiecutter.author_name}} <{{cookiecutter.email}}>
+Default settings for {{cookiecutter.project_name}}
+Author : {{cookiecutter.author_name}} <{{cookiecutter.email}}>
 """
 
 import os.path
 from getenv import env
 
-##
-## Paths
-##
+"""
+Paths
+"""
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-##
-## Debug
-##
+"""
+Debug
+"""
 DEBUG = env('DJANGO_DEBUG')
 TEMPLATE_DEBUG = DEBUG
 
-
-##
-## Database
-##
+"""
+Database
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -34,50 +32,49 @@ DATABASES = {
     }
 }
 
-
-##
-## I18N & L18N
-##
+"""
+I18N & L18N
+"""
 TIME_ZONE = 'America/Mexico_City'
+
 LANGUAGES = (
-  ('en', 'English'),
-  ('es', 'Spanish'),
+    ('en', 'English'),
+    ('es', 'Spanish'),
 )
+
 USE_I18N = True
+
 USE_L10N = True
+
 USE_TZ = True
+
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale/'),
 )
 
-
-##
-## Security
-##
+"""
+Security
+"""
 SECRET_KEY = 'hcyf!<secret key here>'
 
-
-##
-## URL's
-##
+"""
+URL's
+"""
 ROOT_URLCONF = 'urls'
 
-
-##
-## Deploy
-##
+"""
+Deploy
+"""
 WSGI_APPLICATION = 'wsgi.application'
 
-
-##
-## Domains
-##
+"""
+Domains
+"""
 ALLOWED_HOSTS = ['*']
 
-
-##
-## Middlewares
-##
+"""
+Middlewares
+"""
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -90,40 +87,50 @@ MIDDLEWARE_CLASSES = (
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
 )
+"""
+middleware gzip 'django.middleware.gzip.GZipMiddleware',
+"""
 
-
-##
-## Media & Statics
-##
+"""
+Media & Statics
+"""
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 MEDIA_URL = '/media/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
 COMPRESS_OUTPUT_DIR = 'cache'
 
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'django_libsass.SassCompiler'),
 )
 
-##
-## Templates
-##
+"""
+Templates
+"""
 TEMPLATE_LOADERS = (
     'django.template.loaders.eggs.Loader',
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
+
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
@@ -134,10 +141,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 )
 
-
-##
-## Apps
-##
+"""
+Apps
+"""
 INSTALLED_APPS = (
     'grappelli',
     'django.contrib.admin',
@@ -149,52 +155,51 @@ INSTALLED_APPS = (
     'compressor',
 )
 
-
-##
-## Django Test Runner
-##
+"""
+Django Test Runner
+"""
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
-
-##
-## Django Debug Tool Bar
-##
+"""
+Django Debug Tool Bar
+"""
 if DEBUG:
     INTERNAL_IPS = ('127.0.0.1',)
     INSTALLED_APPS += ('debug_toolbar',)
     COMPRESS_OFFLINE = True
 else:
-##
-## Django Compress Production
-##
+
+    """
+    Django Compress Production
+    """
     COMPRESS_OFFLINE = False
     COMPRESS_ENABLED = True
     HTML_MINIFY = True
     LIBSASS_OUTPUT_STYLE = 'compressed'
-    COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',  'compressor.filters.cssmin.CSSMinFilter']
+    COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter',
+                            'compressor.filters.cssmin.CSSMinFilter']
 
-##
-## Mail
-##
+"""
+Mail
+"""
 EMAIL_USE_TLS = env('DJANGO_EMAIL_USE_TLS')
 EMAIL_HOST = env('DJANGO_EMAIL_HOST'),
 EMAIL_HOST_USER = env('DJANGO_EMAIL_HOST_USER'),
 EMAIL_HOST_PASSWORD = env('DJANGO_EMAIL_HOST_PASSWORD'),
 EMAIL_PORT = env('DJANGO_EMAIL_PORT')
 
-
-##
-## Admins
-##
+"""
+Admins
+"""
 ADMINS = (
-        ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
+    ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
 )
+
 MANAGERS = ADMINS
 
-
-##
-## Logs
-##
+"""
+Logs
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

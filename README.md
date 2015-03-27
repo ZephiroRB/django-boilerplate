@@ -20,6 +20,9 @@
     cd repo_name
     ./zsetup.sh
 
+# configuramos los datos de nuestra base de datos y email
+    vim config/EnvFile
+
 # para iniciar o retomar un proyecto
 (esto nos carga el ambiente de trabajo y ejecuta el archivo EnvFile)
 
